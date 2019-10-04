@@ -1,0 +1,62 @@
+.App {
+  text-align: center;
+  font-family: sans-serif;
+  .CompB {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    .card-container {
+      color: #000;
+    }
+  }
+  .CompC {
+    .content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+      }
+    }
+    .CompD {
+      .pointer {
+        cursor: pointer;
+      }
+      // display: flex;
+      .nine {
+        &.wide {
+          &.column{  
+            display: grid;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-direction: row;
+
+          }
+        }
+      }
+      .image {
+        // margin: 50px 10px 0;
+        img {
+          width: 100%;
+          // @media screen and (min-width: 768px) {
+          //   width: 200px;
+          // }
+      }
+    }
+    .lists {
+      display: flex;
+      justify-content: space-between;
+    }
+    .ui {
+      &.list {
+        .item {
+          text-align: left;
+          padding: 5px;
+          margin: 5px;
+          border-style: solid;
+          border-width: 1px;
+          border-color: #eee;
+        }
+      }
+    }
+}
+}
