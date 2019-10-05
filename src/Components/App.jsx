@@ -12,7 +12,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { userLogout } from "../Actions";
 class App extends Component {
-state={ timeout: 1000 * 5}
+state={ timeout: 30000}
   handleClick = () => {
     this.props.userLogout();
   };
