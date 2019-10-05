@@ -17,10 +17,10 @@ state={ timeout: 1000 * 5}
     this.props.userLogout();
   };
   onActive = ()=>{
-    console.log('active');
+    // console.log('active');
   }
   onIdle = () => {
-    console.log('idle');
+    // console.log('idle');
     this.handleClick();
   }
   render() {    

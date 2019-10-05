@@ -26,8 +26,11 @@ class Login extends Component {
   handleSubmit = e => {
     e.preventDefault();
     if (this.validateForm()) {
-      this.props.userLogin(this.state.fields);
-        this.setState(initialState);
+      let fields = this.state.fields;
+      this.props.userLogin(fields);
+      fields["username"]="";
+      fields["password"]="";
+        this.setState({fields});
     }
   }
 
