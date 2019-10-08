@@ -12,35 +12,35 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { userLogout } from "../Actions";
 class App extends Component {
-state={ timeout: 30000}
+  state = { timeout: 30000 }
   handleClick = () => {
     this.props.userLogout();
   };
-  onActive = ()=>{
+  onActive = () => {
     // console.log('active');
   }
   onIdle = () => {
     // console.log('idle');
     this.handleClick();
   }
-  render() {    
+  render() {
     return (
       <div className="App">
-         <IdleTimer
-        ref={ref => { this.idleTimer = ref }}
-        element={document}
-        onActive={this.onActive}
-        onIdle={this.onIdle}
-        onAction={this.onAction}
-        debounce={250}
-        timeout={this.state.timeout} />
+        <IdleTimer
+          ref={ref => { this.idleTimer = ref }}
+          element={document}
+          onActive={this.onActive}
+          onIdle={this.onIdle}
+          onAction={this.onAction}
+          debounce={250}
+          timeout={this.state.timeout} />
         <ToastContainer autoClose={2000} />
         <Router history={createBrowserHistory}>
           {this.props.isSignedIn ? (
             <Redirect to="/dashboard" />
           ) : (
-            <Redirect to="/" />
-          )}
+              <Redirect to="/" />
+            )}
           <header>
             <Header onClick={this.handleClick} isSignedIn={this.props.auth} />
           </header>

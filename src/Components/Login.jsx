@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import TextField from "../Reusable/TextField";
 import Button from "../Reusable/Button";
-import Error from "../Reusable/Error";
+import List from "../Reusable/List";
 import { userLogin } from "../Actions";
 
 const initialState = {
@@ -28,9 +28,9 @@ class Login extends Component {
     if (this.validateForm()) {
       let fields = this.state.fields;
       this.props.userLogin(fields);
-      fields["username"]="";
-      fields["password"]="";
-        this.setState({fields});
+      fields["username"] = "";
+      fields["password"] = "";
+      this.setState({ fields });
     }
   }
 
@@ -78,14 +78,14 @@ class Login extends Component {
         {this.props.isSignedIn ? (
           <Redirect to="/dashboard" />
         ) : (
-          <Redirect to="/" />
-        )}
+            <Redirect to="/" />
+          )}
         <div className="login-form">
-          <form className="ui form" onSubmit={this.handleSubmit}>
+          {/* <form className="ui form" onSubmit={this.handleSubmit}>
             <div
               className={`field ${
                 this.state.errorMessages.username ? "error" : ""
-              }`}
+                }`}
             >
               <TextField
                 type="text"
@@ -100,7 +100,7 @@ class Login extends Component {
             <div
               className={`field ${
                 this.state.errorMessages.password ? "error" : ""
-              }`}
+                }`}
             >
               <TextField
                 type="password"
@@ -115,7 +115,61 @@ class Login extends Component {
             <Button className="ui button blue" type="submit">
               Submit
             </Button>
-          </form>
+          </form> */}
+          <div className="ui middle aligned center aligned grid">
+            <div className="column">
+              <h2 className="ui teal image header">
+                <div className="content">Log-in to your account</div>
+              </h2>
+              <form
+                className={`ui form ${this.state.errorMessages ? "error" : ""}`}
+                onSubmit={this.handleSubmit}
+              >
+                <div
+                  className={`field ${
+                    this.state.errorMessages.username ? "error" : ""
+                    }`}
+                >
+                  <div className="ui left icon input">
+                    <i className="user icon" />
+                    <TextField
+                      type="text"
+                      name="username"
+                      value={this.state.fields.username || ""}
+                      placeholder="Email"
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                </div>
+
+                <div
+                  className={`field ${
+                    this.state.errorMessages.password ? "error" : ""
+                    }`}
+                >
+                  <div className="ui left icon input">
+                    <i className="lock icon" />
+                    <TextField
+                      type="password"
+                      name="password"
+                      value={this.state.fields.password || ""}
+                      placeholder="Passowrd"
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                </div>
+
+                <Button className="ui fluid large teal submit button">
+                  login
+                </Button>
+                {this.state.errorMessages ? (
+                  <div className="ui error message">
+                    <List error={this.state.errorMessages} />
+                  </div>
+                ) : null}
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     );
