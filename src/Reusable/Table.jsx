@@ -2,23 +2,21 @@ import React, { useState, useCallback, Fragment } from "react"
 import Modal from '../Reusable/Modal'
 import ModalMini from '../Reusable/ModalMini'
 import { useSelector } from 'react-redux'
+// import result from 'lodash/result'
 // import { Link } from 'react-router-dom'
-// import { useSelector } from "react-redux"
 import Button from "./Button"
 const Table = props => {
   const [openEdit, setOpenEdit] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
-  const [matchedData, setMatchedData] = useState([]);
+  const [matchedData, setMatchedData] = useState({});
+  // const [title, setTitle] = useState('')
   const editItem = useSelector(state => state.Auth.user);
-  //console.log('DATA : ', editItem)
   const show = useCallback(e => {
-    console.log("button click : ", e.target)
     const { id, name } = e.target
-    console.log("button click : ", name === 'edit')
     let matchedData =
       editItem &&
       editItem.map(el => el.filter(item => item.id === parseInt(id)));
-
+    matchedData.map(el => console.log('TEST: ', el['firstName']))
     setMatchedData(matchedData);
     if (name === 'edit') {
       setOpenEdit(true)
@@ -28,9 +26,6 @@ const Table = props => {
 
 
   }, [editItem]);
-  // const close = () => {
-  //   setOpen(false);
-  // };
   const close = useCallback(() => {
     setOpenEdit(false)
     setOpenDelete(false)
@@ -103,13 +98,13 @@ const Table = props => {
       </table>
       {openEdit ?
         <Modal open={openEdit} close={close} matchedData={matchedData}>
-          {`Edit : ${matchedData[0][0].id}`}
+          {`Edit : ${matchedData}`}
         </Modal>
         : null
       }
       {openDelete ?
         <ModalMini open={openDelete} close={close} matchedData={matchedData} >
-          {`Delete : ${matchedData[0][0].id}`}
+          {`Delete : ${matchedData}`}
         </ModalMini>
         : null
       }
