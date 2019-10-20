@@ -1,6 +1,9 @@
 import React from "react";
 
+// import PropTypes from "prop-types";
+
 const DropDown = props => {
+  // console.log("D", props);
   const handleChange = e => {
     props.onChange(e);
   };
@@ -28,4 +31,8 @@ const DropDown = props => {
     </select>
   );
 };
+// DropDown.propTypes = {
+//   name: PropTypes.string,
+//   onChange: PropTypes.func.isRequired
+// };
 export default DropDown;

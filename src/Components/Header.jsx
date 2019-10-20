@@ -1,8 +1,9 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-// import Button from "../Reusable/Button";
+import Button from "../Reusable/Button";
 
 const Header = props => {
+  // console.log(props.isSignedIn);
   return (
     <header>
       <div className="ui secondary menu">
@@ -15,9 +16,7 @@ const Header = props => {
               <Link className="ui item" to="/dashboard">
                 Dashboard
               </Link>
-              <span className='ui item custom-link' onClick={props.onClick}>
-                <strong><i className="icon user"></i> logout</strong>
-              </span>
+              <Button className='ui button red' onClick={props.onClick}>Logout</Button>
             </Fragment>
           ) : (
             ""

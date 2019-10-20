@@ -1,15 +1,18 @@
 import React from "react";
 
 // import createBrowserHistory from "../Components/history";
+import Button from "./Button";
 
 const Modal = props => {
   // const [open, setOpen] = useState(true)
+  const { open, close, matchedData, children } = props
   // const close = () => {
   //   setOpen(false)
-  //   createBrowserHistory.push('/dashboard')
+
+  //   // createBrowserHistory.push('/dashboard')
   // }
-  const { open, close, matchedData } = props
-  console.log("Modal Rendered standard", matchedData);
+
+  console.log("Modal Rendered mini", matchedData);
   return (
     <div
       name='close'
@@ -19,28 +22,24 @@ const Modal = props => {
       onClick={close}
     >
       <div
-        className={`ui standard test modal scrolling transition ${
+        className={`ui mini test modal scrolling transition ${
           open ? "animating scale in visible active" : "hidden"
           }`}
         onClick={e => e.stopPropagation()}
       >
-
         <i className="close icon" onClick={close} />
-        <div className="header">Profile Picture</div>
-        <div className="image content">
-          <div className="ui medium image">
-            <img src="/images/avatar/large/chris.jpg" alt="pro-pic" />
-          </div>
-          <div className="description">{props.children}</div>
+        <div className="header">Delete Your Account</div>
+        <div className="content">
+          {children}
         </div>
         <div className="actions">
-          <button className="ui black deny button" onClick={close}>
+          <Button className="ui black deny button" onClick={close}>
             Nope
-          </button>
-          <button className="ui positive right labeled icon button">
+          </Button>
+          <Button className="ui positive right labeled icon button">
             Yep, that's me
             <i className="checkmark icon" />
-          </button>
+          </Button>
         </div>
       </div>
     </div>

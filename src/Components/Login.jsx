@@ -15,6 +15,7 @@ class Login extends Component {
   handleChange = e => {
     let fields = this.state.fields;
     const { name, value } = e.target;
+    // console.log("change in ", name, value);
     fields[name] = value;
     this.setState(
       {
@@ -25,15 +26,14 @@ class Login extends Component {
   };
   handleSubmit = e => {
     e.preventDefault();
+    let fields = this.state.fields;
     if (this.validateForm()) {
-      let fields = this.state.fields;
       this.props.userLogin(fields);
       fields["username"] = "";
       fields["password"] = "";
       this.setState({ fields });
     }
-  }
-
+  };
   validateForm = () => {
     let fields = this.state.fields;
     let errorMessages = {};
@@ -73,49 +73,15 @@ class Login extends Component {
   };
 
   render() {
+    console.log("login form : ", this.props);
     return (
       <div className="loginForm">
         {this.props.isSignedIn ? (
           <Redirect to="/dashboard" />
         ) : (
-            <Redirect to="/" />
-          )}
+          <Redirect to="/" />
+        )}
         <div className="login-form">
-          {/* <form className="ui form" onSubmit={this.handleSubmit}>
-            <div
-              className={`field ${
-                this.state.errorMessages.username ? "error" : ""
-                }`}
-            >
-              <TextField
-                type="text"
-                name="username"
-                value={this.state.fields.username || ""}
-                placeholder="Email"
-                onChange={this.handleChange}
-              />
-              <Error>{this.state.errorMessages.username}</Error>
-            </div>
-
-            <div
-              className={`field ${
-                this.state.errorMessages.password ? "error" : ""
-                }`}
-            >
-              <TextField
-                type="password"
-                name="password"
-                value={this.state.fields.password || ""}
-                placeholder="Passowrd"
-                onChange={this.handleChange}
-              />
-              <Error>{this.state.errorMessages.password}</Error>
-            </div>
-
-            <Button className="ui button blue" type="submit">
-              Submit
-            </Button>
-          </form> */}
           <div className="ui middle aligned center aligned grid">
             <div className="column">
               <h2 className="ui teal image header">
@@ -128,7 +94,7 @@ class Login extends Component {
                 <div
                   className={`field ${
                     this.state.errorMessages.username ? "error" : ""
-                    }`}
+                  }`}
                 >
                   <div className="ui left icon input">
                     <i className="user icon" />
@@ -145,7 +111,7 @@ class Login extends Component {
                 <div
                   className={`field ${
                     this.state.errorMessages.password ? "error" : ""
-                    }`}
+                  }`}
                 >
                   <div className="ui left icon input">
                     <i className="lock icon" />
