@@ -1,6 +1,5 @@
-import React from "react";
+import React from "react"
 
-// import createBrowserHistory from "../Components/history";
 import Button from "./Button";
 
 const Modal = props => {
@@ -37,7 +36,7 @@ const Modal = props => {
             Nope
           </Button>
           <Button className="ui positive right labeled icon button">
-            Yep, that's me
+            Yep
             <i className="checkmark icon" />
           </Button>
         </div>

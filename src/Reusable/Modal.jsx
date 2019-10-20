@@ -1,6 +1,5 @@
-import React from "react";
-
-// import createBrowserHistory from "../Components/history";
+import React from "react"
+import Button from './Button'
 
 const Modal = props => {
   // const [open, setOpen] = useState(true)
@@ -34,13 +33,13 @@ const Modal = props => {
           <div className="description">{props.children}</div>
         </div>
         <div className="actions">
-          <button className="ui black deny button" onClick={close}>
+          <Button className="ui black deny button" onClick={close}>
             Nope
-          </button>
-          <button className="ui positive right labeled icon button">
-            Yep, that's me
+          </Button>
+          <Button className="ui positive right labeled icon button">
+            Yep
             <i className="checkmark icon" />
-          </button>
+          </Button>
         </div>
       </div>
     </div>
