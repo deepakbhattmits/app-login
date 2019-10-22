@@ -12,7 +12,9 @@ import App from "./Components/App"
 
 // import "./assets/styles.scss"
 
-import "./assets/styles.css"
+import "./assets/styles.less"
+
+// import "./assets/styles.css"
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const persistConfig = {

@@ -14,30 +14,30 @@ export const USER = {
     },
     {
       id: 2,
-      firstName: "deepak",
-      lastName: "bhatt",
-      profession: "sse",
+      firstName: "pooja",
+      lastName: "upadhyay",
+      profession: "HR",
       status: "active"
     },
     {
       id: 3,
-      firstName: "deepak",
+      firstName: "om prakash",
       lastName: "bhatt",
-      profession: "sse",
+      profession: "TAFRI MARKA",
       status: "active"
     },
     {
       id: 4,
-      firstName: "deepak",
+      firstName: "BD",
       lastName: "bhatt",
-      profession: "sse",
+      profession: "DOCKs",
       status: "active"
     },
     {
       id: 5,
-      firstName: "deepak",
+      firstName: "Manju",
       lastName: "bhatt",
-      profession: "sse",
+      profession: "house wife",
       status: "active"
     }
   ]

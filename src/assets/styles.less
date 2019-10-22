@@ -1,0 +1,62 @@
+
+@height0: calc(100% - 100px); 
+@height1: 100%; 
+@height2: 50px; 
+
+html {
+	height: @height1;
+	margin: 0;
+}
+body {
+	display: flex;
+	flex-direction: column;
+	height: @height1;
+	margin: 0;
+}
+#root {
+	height: @height1;
+	.App {
+		display: flex;
+		flex-direction: column;
+		font-family: sans-serif;
+		height: @height1;
+		article {
+			height: calc(@height1 - 100px);
+			overflow-x: hidden;
+			overflow-y: scroll;
+		}
+		header {
+			background: lightcyan;
+			height: @height2;
+		}
+		footer {
+			background: PapayaWhip;
+			height: @height2;
+		}
+		.CompB {
+			align-items: center;
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.loginForm {
+			display: flex;
+			height: calc(@height1 - 100px);
+			.login-form {
+				border-radius: 3px;
+				border: 1px solid #e0b4b4;
+				display: flex;
+				flex-direction: column;
+				margin: auto;
+				padding: 10px;
+				width: 50%;
+			}
+		}
+	}
+}
+.ui.dimmer.fade.in.visible.active {
+	display: flex !important;
+}
+.ui.modals.scale.in.visible.active {
+	animation-duration: 1000ms;
+	display: block !important;
+}
