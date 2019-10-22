@@ -16,11 +16,14 @@ const Header = props => {
               <Link className="ui item" to="/dashboard">
                 Dashboard
               </Link>
+              <Link className="ui item" to="/grid">
+                Grid
+              </Link>
               <Button className='ui button red' onClick={props.onClick}>Logout</Button>
             </Fragment>
           ) : (
-            ""
-          )}
+              ""
+            )}
         </div>
       </div>
     </header>

@@ -5,7 +5,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Login from "./Login";
 import Dashboard from "./Dashboard";
-
+import Draggable from './Draggable';
 // import Edit from "./Edit";
 
 // import Delete from "./Delete";
@@ -36,8 +36,8 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Login} />
               <Route path="/dashboard" component={Dashboard} />
-              {/* <Route path="/edit/:id" component={Edit} />
-              <Route path="/delete/:id" component={Delete} /> */}
+              <Route path="/grid" component={Draggable} />
+              {/* <Route path="/delete/:id" component={Delete} /> */}
               <Route path="*" exact component={NotFound} />
             </Switch>
           </article>
